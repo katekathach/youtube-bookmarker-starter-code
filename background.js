@@ -1,6 +1,6 @@
-chrome.tabs.onUpdated.addListener((tabId, tab) => {
+chrome.tabs.onUpdated.addListener((tabId, tab) => { //listen to tabs 
     if (tab.url && tab.url.includes("youtube.com/watch")) {
-      const queryParameters = tab.url.split("?")[1];
+      const queryParameters = tab.url.split("?")[1]; //get unique id from youtube video
       const urlParameters = new URLSearchParams(queryParameters);
   
       chrome.tabs.sendMessage(tabId, {
@@ -9,4 +9,6 @@ chrome.tabs.onUpdated.addListener((tabId, tab) => {
       });
     }
   });
+
+
   
